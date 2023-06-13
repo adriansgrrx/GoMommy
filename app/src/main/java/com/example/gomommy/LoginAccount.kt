@@ -10,7 +10,7 @@ import android.widget.EditText
 import android.widget.ToggleButton
 import androidx.core.widget.addTextChangedListener
 
-class CreateAccount : AppCompatActivity() {
+class LoginAccount : AppCompatActivity() {
     private lateinit var usernameEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
@@ -20,33 +20,25 @@ class CreateAccount : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_create_account)
+        setContentView(R.layout.activity_login_account)
 
         usernameEditText = findViewById(R.id.createUsernameEditText)
         passwordEditText = findViewById(R.id.createPasswordEditText)
         //forgotPasswordTextView = findViewById(R.id.forgotPasswordTextView)
-        loginButton = findViewById(R.id.loginButton)
-        createAccountButton = findViewById(R.id.createAccountButton)
-        createAccountButton.isEnabled = false // Initially disable the sign-up button
+        createAccountButton = findViewById(R.id.loginButton)
+        loginButton = findViewById(R.id.createAccountButton)
+        loginButton.isEnabled = false // Initially disable the sign-up button
 
         // Add text change listeners to the username and password EditText fields
         usernameEditText.addTextChangedListener { text ->
-            updateCreateButtonState()
+            updateSignUpButtonState()
         }
 
         passwordEditText.addTextChangedListener { text ->
-            updateCreateButtonState()
+            updateSignUpButtonState()
         }
 
         loginButton.setOnClickListener {
-            val username = usernameEditText.text.toString()
-            val password = passwordEditText.text.toString()
-
-            val intent = Intent(this, LoginAccount::class.java)
-            startActivity(intent)
-        }
-
-        createAccountButton.setOnClickListener{
             val username = usernameEditText.text.toString()
             val password = passwordEditText.text.toString()
 
@@ -56,18 +48,26 @@ class CreateAccount : AppCompatActivity() {
             //val intent = Intent(this, CreateAccountActivity::class.java)
             //startActivity(intent)
         }
+
+        createAccountButton.setOnClickListener{
+            val username = usernameEditText.text.toString()
+            val password = passwordEditText.text.toString()
+
+            val intent = Intent(this, CreateAccount::class.java)
+            startActivity(intent)
+        }
     }
 
-    private fun updateCreateButtonState() {
+    private fun updateSignUpButtonState() {
         val isUsernameFilled = usernameEditText.text.isNotEmpty()
         val isPasswordFilled = passwordEditText.text.isNotEmpty()
-        this.createAccountButton.isEnabled = isUsernameFilled && isPasswordFilled
-        if(this.createAccountButton.isEnabled){
-            this.createAccountButton.setBackgroundResource(R.drawable.log_button)
-            this.createAccountButton.setTextColor(Color.parseColor("#FE5065"))
+        this.loginButton.isEnabled = isUsernameFilled && isPasswordFilled
+        if(this.loginButton.isEnabled){
+            this.loginButton.setBackgroundResource(R.drawable.log_button)
+            this.loginButton.setTextColor(Color.parseColor("#FE5065"))
         }else {
-            this.createAccountButton.setBackgroundResource(R.drawable.disable_button)
-            this.createAccountButton.setTextColor(Color.parseColor("#D2D1D1"))
+            this.loginButton.setBackgroundResource(R.drawable.disable_button)
+            this.loginButton.setTextColor(Color.parseColor("#D2D1D1"))
         }
         val showPasswordToggleButton = findViewById<ToggleButton>(R.id.showPasswordToggleButton)
         val passwordEditText = findViewById<EditText>(R.id.createPasswordEditText)

@@ -38,7 +38,7 @@ class TermsAndConditions : AppCompatActivity() {
         button.setOnClickListener {
             if (button.isEnabled) {
                 // Perform the desired action or navigate to the desired activity
-                val intent = Intent(this, CreateAccount::class.java)
+                val intent = Intent(this, LoginAccount::class.java)
                 startActivity(intent)
             } else {
                 // Button is disabled, display a message
