@@ -27,7 +27,7 @@ class CreateAccount : AppCompatActivity() {
         //forgotPasswordTextView = findViewById(R.id.forgotPasswordTextView)
         loginButton = findViewById(R.id.loginButton)
         createAccountButton = findViewById(R.id.createAccountButton)
-        createAccountButton.isEnabled = false // Initially disable the sign-up button
+        createAccountButton.isEnabled = false // Initially disable the sign-up yesButton
 
         // Add text change listeners to the username and password EditText fields
         usernameEditText.addTextChangedListener { text ->
@@ -44,6 +44,7 @@ class CreateAccount : AppCompatActivity() {
 
             val intent = Intent(this, LoginAccount::class.java)
             startActivity(intent)
+            finish()
         }
 
         createAccountButton.setOnClickListener{
@@ -53,8 +54,9 @@ class CreateAccount : AppCompatActivity() {
             // Perform sign-up logic here
 
             // Redirect to the desired activity
-            //val intent = Intent(this, CreateAccountActivity::class.java)
-            //startActivity(intent)
+            val intent = Intent(this, MomExperience::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

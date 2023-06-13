@@ -31,30 +31,33 @@ class TermsAndConditions : AppCompatActivity() {
             updateButtonEnabledState()
         }
 
-        // Call the updateButtonEnabledState initially to set the initial state of the button
+        // Call the updateButtonEnabledState initially to set the initial state of the yesButton
         updateButtonEnabledState()
 
-        // Set a click listener for the Next button
+        // Set a click listener for the Next yesButton
         button.setOnClickListener {
             if (button.isEnabled) {
                 // Perform the desired action or navigate to the desired activity
                 val intent = Intent(this, LoginAccount::class.java)
                 startActivity(intent)
+
+                finish()
             } else {
                 // Button is disabled, display a message
+                println("TermsAndConditions, Button is disabled. Showing toast.")
                 Toast.makeText(this, "Please accept the terms and conditions", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    // Function to update the enabled state of the button based on checkbox states
+    // Function to update the enabled state of the yesButton based on checkbox states
     private fun updateButtonEnabledState() {
         button.isEnabled = checkbox1.isChecked && checkbox2.isChecked
         if (button.isEnabled) {
-            // Change button background color when enabled
+            // Change yesButton background color when enabled
             button.setBackgroundResource(R.drawable.gradient_bg)
         } else {
-            // Change button background color when disabled
+            // Change yesButton background color when disabled
             button.setBackgroundResource(R.color.disabled_btn)
         }
     }

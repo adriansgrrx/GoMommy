@@ -12,4 +12,10 @@
     <string name="sign_in_to_continue">Sign in to continue.</string>
     <string name="welcome">Welcome!</string>
     <string name="let_s_get_started">Let\'s get started!</string>
+    <string name="yes_i_am_a_first_time_mom">Yes, I am a first time mom</string>
+    <string name="no_i_have_had_children_before">No, I have had children before</string>
+    <string name="user_agreement">User Agreement</string>
+    <string name="i_agree_to_privacy_policy_and_terms_of_use">I agree to Privacy Policy and Terms of Use.</string>
+    <string name="i_agree_to_processing_of_my_personal_health_data_for_providing_me_go_mommy_functions_see_more_in_privacy_policy">I agree to processing of my personal health data for providing me Go Mommy functions. See more in Privacy Policy.</string>
+    <string name="next">Next</string>
 </resources>
